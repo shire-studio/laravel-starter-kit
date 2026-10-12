@@ -1,6 +1,6 @@
 {
   "$schema": "https://getcomposer.org/schema.json",
-  "name": "joshdonnell/laravel-starter-kit-vue",
+  "name": "shire-studio/laravel-starter-kit",
   "type": "project",
   "description": "An end-to-end type-safe Laravel 13 starter kit with auto-generated TypeScript types, Vue 3, and shadcn-vue components for fast front-end prototyping",
   "keywords": [
