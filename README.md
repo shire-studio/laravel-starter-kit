@@ -4,6 +4,7 @@
 </picture>
 
 <br/>
+<br/>
 
 <p>
     <a href="https://github.com/shire-studio/laravel-starter-kit/actions"><img src="https://github.com/shire-studio/laravel-starter-kit/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>

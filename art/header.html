@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=block" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 400px; background: transparent; }
+  body { -webkit-font-smoothing: antialiased; }
+
+  .card {
+    position: relative; width: 1200px; height: 400px;
+    border-radius: 24px; overflow: hidden;
+    background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+    box-shadow: inset 0 0 0 1.5px var(--border);
+  }
+  svg.scene { position: absolute; inset: 0; }
+
+  .copy { position: absolute; left: 72px; top: 66px; }
+  .eyebrow {
+    display: flex; align-items: center; gap: 10px;
+    font: 500 12.5px/1 "JetBrains Mono", monospace;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--eyebrow);
+  }
+  .eyebrow .mark {
+    width: 22px; height: 22px; border-radius: 7px;
+    background: var(--mark-bg); display: grid; place-items: center;
+  }
+  h1 {
+    margin-top: 22px;
+    font: 600 78px/0.95 "Inter Tight", sans-serif; letter-spacing: -0.035em;
+    color: var(--text);
+  }
+  h1 em {
+    display: block;
+    font: italic 400 92px/0.95 "Instrument Serif", serif; letter-spacing: -0.01em;
+    color: var(--accent);
+  }
+  .tagline {
+    margin-top: 20px;
+    font: 400 18px/1.4 "Inter Tight", sans-serif; color: var(--muted);
+  }
+  .stack {
+    margin-top: 16px; display: flex; gap: 8px;
+    font: 500 12px/1 "JetBrains Mono", monospace; color: var(--chip-text);
+  }
+  .stack span {
+    padding: 7px 10px; border-radius: 999px;
+    background: var(--chip-bg); box-shadow: inset 0 0 0 1px var(--chip-border);
+    backdrop-filter: blur(6px);
+  }
+
+  .light {
+    --sky-top: #e9f0fb; --sky-bottom: #fbf3e4; --border: rgba(20, 50, 30, 0.10);
+    --text: #12201a; --accent: #3f7a4f; --muted: #4d5b53; --eyebrow: #5b6b61;
+    --mark-bg: #2f5e3d;
+    --chip-bg: rgba(255, 255, 255, 0.6); --chip-border: rgba(20, 50, 30, 0.12); --chip-text: #2c3d33;
+    --sun-a: #ffe3a3; --sun-b: #ffb664; --sun-glow: rgba(255, 186, 102, 0.45);
+    --h1: #cfe0c3; --h2: #a9c99c; --h3: #7fae78; --h4: #5a8f5c; --h5: #3f7349;
+    --ridge: rgba(255, 255, 255, 0.55); --tree: #2f5e3d; --tree-trunk: #3c4a36;
+    --trail: rgba(63, 122, 79, 0.55); --rocket: #2f5e3d; --star: transparent; --crater: transparent; --flame: #ff9a4a;
+  }
+  .dark {
+    --sky-top: #060a16; --sky-bottom: #111c33; --border: rgba(160, 200, 255, 0.14);
+    --text: #f2f5f3; --accent: #9fd6a8; --muted: #a2adb8; --eyebrow: #8796a8;
+    --mark-bg: #2b5a3a;
+    --chip-bg: rgba(255, 255, 255, 0.05); --chip-border: rgba(255, 255, 255, 0.12); --chip-text: #cdd6df;
+    --sun-a: #f4f1e6; --sun-b: #d9dcea; --sun-glow: rgba(190, 205, 255, 0.22);
+    --h1: #16263a; --h2: #132a28; --h3: #10241f; --h4: #0c1c18; --h5: #081411;
+    --ridge: rgba(170, 230, 190, 0.16); --tree: #06100d; --tree-trunk: #06100d;
+    --trail: rgba(200, 220, 255, 0.5); --rocket: #f2f5f3; --star: #e8eefc; --crater: rgba(140, 150, 180, 0.18); --flame: #ffb35c;
+  }
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <svg class="scene" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="sun" cx="0.4" cy="0.35" r="0.7">
+        <stop offset="0" stop-color="var(--sun-a)"/>
+        <stop offset="1" stop-color="var(--sun-b)"/>
+      </radialGradient>
+      <radialGradient id="glow">
+        <stop offset="0" stop-color="var(--sun-glow)"/>
+        <stop offset="1" stop-color="var(--sun-glow)" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <g id="stars"></g>
+
+    <circle cx="905" cy="168" r="190" fill="url(#glow)"/>
+    <circle cx="905" cy="168" r="64" fill="url(#sun)"/>
+    <g fill="var(--crater)">
+      <circle cx="884" cy="146" r="9"/><circle cx="928" cy="186" r="12"/><circle cx="920" cy="140" r="5"/><circle cx="876" cy="190" r="6"/>
+    </g>
+
+    <!-- rocket trail -->
+    <path d="M700 300 C 820 260, 960 200, 1090 74" fill="none" stroke="var(--trail)" stroke-width="2" stroke-dasharray="2 9" stroke-linecap="round"/>
+    <g transform="translate(1098 66) rotate(45)">
+      <path d="M0 -15 C 6 -9, 7 0, 5 9 L -5 9 C -7 0, -6 -9, 0 -15 Z" fill="var(--rocket)"/>
+      <path d="M-5 3 L -10 12 L -5 10 Z M5 3 L 10 12 L 5 10 Z" fill="var(--rocket)"/>
+      <circle cx="0" cy="-3" r="2.2" fill="var(--sky-bottom)"/>
+      <path d="M-3 10 Q 0 20, 3 10 Z" fill="var(--flame)"/>
+    </g>
+
+    <!-- hills, back to front -->
+    <path style="fill:var(--h1)" d="M0 400 L0 364 C 220 360, 420 352, 540 320 C 630 296, 680 246, 760 236 C 860 224, 930 190, 1030 182 C 1110 176, 1170 196, 1200 204 L1200 400 Z"/>
+    <path style="fill:var(--h2)" d="M0 400 L0 372 C 220 362, 420 330, 600 300 C 720 280, 820 250, 930 252 C 1050 254, 1120 228, 1200 236 L1200 400 Z"/>
+    <path fill="none" stroke="var(--ridge)" stroke-width="1.5" d="M0 372 C 220 362, 420 330, 600 300 C 720 280, 820 250, 930 252 C 1050 254, 1120 228, 1200 236"/>
+    <path style="fill:var(--h3)" d="M0 400 L0 386 C 260 382, 520 360, 700 330 C 820 310, 900 296, 1010 300 C 1100 303, 1160 286, 1200 290 L1200 400 Z"/>
+    <path fill="none" stroke="var(--ridge)" stroke-width="1.5" d="M0 386 C 260 382, 520 360, 700 330 C 820 310, 900 296, 1010 300 C 1100 303, 1160 286, 1200 290"/>
+    <path style="fill:var(--h4)" d="M520 400 C 640 380, 760 358, 880 350 C 980 344, 1080 336, 1200 330 L1200 400 Z"/>
+    <path fill="none" stroke="var(--ridge)" stroke-width="1.5" d="M520 400 C 640 380, 760 358, 880 350 C 980 344, 1080 336, 1200 330"/>
+    <path style="fill:var(--h5)" d="M840 400 C 940 386, 1060 374, 1200 370 L1200 400 Z"/>
+
+    <g id="trees"></g>
+  </svg>
+
+  <div class="copy">
+    <div class="eyebrow">
+      <span class="mark">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c3-5 6-7 10-7s7 2 10 7"/><path d="M6 18c2-3 4-4 6-4s4 1 6 4"/></svg>
+      </span>
+      Shire Studio's
+    </div>
+    <h1>Laravel<em>Starter Kit</em></h1>
+    <p class="tagline">End-to-end type-safe Laravel, Inertia &amp; Vue.</p>
+    <div class="stack"><span>laravel 13</span><span>inertia 3</span><span>vue 3</span><span>typescript</span></div>
+  </div>
+</div>
+<script>
+  const mode = location.hash.slice(1) || 'light';
+  document.getElementById('card').classList.add(mode);
+  const ns = 'http://www.w3.org/2000/svg';
+
+  let seed = 7;
+  const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const stars = document.getElementById('stars');
+  for (let i = 0; i < 90; i++) {
+    const x = 560 + rand() * 640, y = 10 + rand() * 200, r = rand() < 0.15 ? 1.4 : 0.8;
+    const c = document.createElementNS(ns, 'circle');
+    c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', r);
+    c.setAttribute('fill', 'var(--star)'); c.setAttribute('opacity', (0.3 + rand() * 0.7).toFixed(2));
+    stars.appendChild(c);
+  }
+
+  // [x, ridgeY, height] for small round trees sitting on the ridges
+  const trees = document.getElementById('trees');
+  [[640, 293, 16], [662, 289, 12], [868, 254, 14], [884, 253, 18], [902, 252, 12],
+   [1060, 300, 16], [1078, 298, 12], [760, 322, 14], [1150, 288, 13]].forEach(([x, y, h]) => {
+    const trunk = document.createElementNS(ns, 'rect');
+    trunk.setAttribute('x', x - 1); trunk.setAttribute('y', y - h * 0.5); trunk.setAttribute('width', 2); trunk.setAttribute('height', h * 0.5 + 2);
+    trunk.setAttribute('fill', 'var(--tree-trunk)');
+    const crown = document.createElementNS(ns, 'circle');
+    crown.setAttribute('cx', x); crown.setAttribute('cy', y - h * 0.62); crown.setAttribute('r', h * 0.42);
+    crown.setAttribute('fill', 'var(--tree)');
+    trees.append(trunk, crown);
+  });
+</script>
+</body>
+</html>
