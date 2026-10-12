@@ -77,8 +77,8 @@
             "hash": "tree-v2:c83c0f5adf29f804a91b34c62798f3daa71152a6b0ba5b89859224f93067d250"
         },
         "laravel/framework": {
-            "version": "v13.35.0",
-            "hash": "tree-v2:862428a89369e09b33dee255707d3c5d05dfffdc5bf880ce97418d0e7853d24b"
+            "version": "v13.34.0",
+            "hash": "tree-v2:dd40bf79f1cde41e1107ae364ffbcd14879ac783109e2849c644868450705bc5"
         },
         "laravel/passkeys": {
             "version": "v0.2.1",
