@@ -9,10 +9,10 @@
 <p>
     <a href="https://github.com/shire-studio/laravel-starter-kit/actions"><img src="https://github.com/shire-studio/laravel-starter-kit/actions/workflows/tests.yml/badge.svg" alt="Build Status"></a>
     <a href="https://packagist.org/packages/shire-studio/laravel-starter-kit"><img src="https://img.shields.io/packagist/v/shire-studio/laravel-starter-kit" alt="Latest Stable Version"></a>
-    <a href="https://packagist.org/packages/shire-studio/laravel-starter-kit"><img src="https://img.shields.io/packagist/l/shire-studio/laravel-starter-kit" alt="License"></a>
+    <a href="LICENSE.md"><img src="https://img.shields.io/packagist/l/shire-studio/laravel-starter-kit" alt="License"></a>
 </p>
 
-An end-to-end type-safe Laravel 13 starter kit with auto-generated TypeScript types, Vue 3, and shadcn-vue components for fast front-end prototyping. Built on top of [Nuno Maduro's Laravel Starter Kit](https://github.com/nunomaduro/laravel-starter-kit-inertia-vue), this kit extends it with Wayfinder, Laravel Data, and unplugin-auto-import to provide a Nuxt-like developer experience when writing Vue code within a Laravel Inertia application.
+An end-to-end type-safe Laravel 13 starter kit with auto-generated TypeScript types, Vue 3, and shadcn-vue components for fast front-end prototyping. It combines Wayfinder, Laravel Data, and unplugin-auto-import to provide a Nuxt-like developer experience when writing Vue code within a Laravel Inertia application.
 
 ## Tech Stack
 
@@ -159,4 +159,4 @@ Please ensure all tests and quality checks pass before submitting your PR.
 
 ## License
 
-This project was created by **Shire Studio** under the **[MIT license](https://opensource.org/licenses/MIT)**.
+This project was created by **Shire Studio** under the **[MIT license](LICENSE.md)**.
