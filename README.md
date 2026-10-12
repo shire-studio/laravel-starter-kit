@@ -159,4 +159,4 @@ Please ensure all tests and quality checks pass before submitting your PR.
 
 ## License
 
-This project was created by **[Josh Donnell](https://x.com/developedbyjosh)** under the **[MIT license](https://opensource.org/licenses/MIT)**.
+This project was created by **Shire Studio** under the **[MIT license](https://opensource.org/licenses/MIT)**.
