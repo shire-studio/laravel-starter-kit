@@ -6,6 +6,9 @@ minimumReleaseAgeExclude:
   - '@types/node@26.5.1'
   - fontaine@1.0.0
   - reka-ui@2.10.5
+  - '@lucide/vue@1.59.0'
+  - '@rollup/rollup-linux-x64-gnu@4.64.8'
+  - '@rollup/rollup-win32-x64-msvc@4.64.8'
 catalog:
   vite: npm:@voidzero-dev/vite-plus-core@0.3.1
   vite-plus: 0.3.1
