@@ -46,10 +46,31 @@ An end-to-end type-safe Laravel 13 starter kit with auto-generated TypeScript ty
 
 ### Installation
 
+The recommended way to start a project is the [starter kit CLI](https://github.com/shire-studio/laravel-starter-kit-cli). It works like the `laravel` installer, and it can also bring newer starter kit releases into your project later (see [Keeping Your Project Up to Date](#keeping-your-project-up-to-date)).
+
+Install it globally with Composer:
+
+```bash
+composer global require shire-studio/laravel-starter-kit-cli
+```
+
+Make sure Composer's global bin directory is on your `PATH` (run `composer global config bin-dir --absolute` to find it). Then create a project:
+
+```bash
+starter-kit new example-app
+cd example-app
+```
+
+This creates `example-app` from the latest stable release. You'll be asked whether to install and build the frontend with pnpm, and whether to initialise a git repository. Pass `--pnpm` / `--no-pnpm` and `--git` / `--no-git` to skip the questions, or `--force` to overwrite an existing directory.
+
+If you'd rather not install the CLI, `composer create-project` works too:
+
 ```bash
 composer create-project shire-studio/laravel-starter-kit --prefer-dist example-app
 cd example-app
 ```
+
+Either way, the project gets a `.starter-kit.json` file recording the release it was created from. Commit it, because the CLI reads it to work out which starter kit changes your project hasn't received yet.
 
 ### Setup
 
@@ -76,6 +97,28 @@ composer test
 ```
 
 You should see 100% test coverage and all quality checks passing.
+
+## Keeping Your Project Up to Date
+
+Once you've built on the starter kit, you can't just pull in new releases, because your project has drifted from it. The CLI's `update` command handles this. Run it from the root of your project:
+
+```bash
+starter-kit update
+```
+
+The project must be in a git repository with no uncommitted changes, so everything the update does can be reviewed with `git diff` and undone with `git restore`. It can live inside a larger repository, such as a monorepo.
+
+The CLI compares the release in your `.starter-kit.json` with the latest one and writes the changes to `.starter-kit-update/` (excluded from git). It then hands them to a coding agent of your choice, which merges them into your code, keeps your own changes and fixes anything the update breaks. Claude Code, Codex, Gemini CLI, OpenCode and Cursor are supported, and only the ones you have installed are offered. Pass `--agent=<agent>` to skip the question.
+
+When the agent is done, the CLI shows the changed files and asks whether to mark the project as updated, which bumps the version in `.starter-kit.json`. Nothing is committed for you. Review the changes, run `composer test`, then commit.
+
+A few things worth knowing:
+
+- **Removed features stay removed.** If you deleted part of the starter kit, such as authentication, the update won't bring it back. The CLI can record these in `.starter-kit.json` so future updates remember them.
+- **You can skip the agent.** `--agent=none` only prepares `.starter-kit-update/`. Follow `.starter-kit-update/PROMPT.md` yourself or give it to any agent you like.
+- **Older projects** without a `.starter-kit.json` can still be updated. The agent works out which release the project started from and asks you to confirm it.
+
+Update regularly. Small, frequent updates are much easier to review than one large jump across several releases. See the [CLI README](https://github.com/shire-studio/laravel-starter-kit-cli#update-an-existing-project) for every option.
 
 ## Available Commands
 
