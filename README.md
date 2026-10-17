@@ -143,6 +143,14 @@ composer test:type-coverage   # Type coverage check
 composer test:lint            # Linting dry-run
 ```
 
+## Releasing
+
+Releases are published by the **release** workflow, not from the Releases page. In the Actions tab, run it on `main` with the new version, for example `v1.5.0`.
+
+The workflow writes the version to `.starter-kit.json`, commits it on top of `main`, tags that commit and publishes a GitHub release with generated notes. Every project created from the release then knows which version it started from, which the [starter kit CLI](https://github.com/shire-studio/laravel-starter-kit-cli) uses to update it later. The release commit is only reachable from its tag, so `main` itself never has a `.starter-kit.json`.
+
+The workflow refuses versions that already exist or aren't newer than the latest release.
+
 ## Contributing
 
 Contributions are welcome from everyone! To get started:
