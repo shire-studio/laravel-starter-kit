@@ -1,0 +1,85 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: The version to release, for example v1.5.0
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Validate Version
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if ! [[ "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::The version must look like v1.2.3, but got $VERSION."
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Check Version Is New
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          if git rev-parse --quiet --verify "refs/tags/$VERSION" > /dev/null; then
+            echo "::error::The tag $VERSION already exists."
+            exit 1
+          fi
+
+          LATEST_VERSION=$(git tag --list 'v*.*.*' --sort=-version:refname | head -n 1)
+
+          if [ -n "$LATEST_VERSION" ] && [ "$(printf '%s\n%s\n' "$LATEST_VERSION" "$VERSION" | sort -V | tail -n 1)" != "$VERSION" ]; then
+            echo "::error::$VERSION must be newer than the latest release, $LATEST_VERSION."
+            exit 1
+          fi
+
+      - name: Record Version In Manifest
+        env:
+          VERSION: ${{ inputs.version }}
+          REPOSITORY: ${{ github.server_url }}/${{ github.repository }}.git
+        run: |
+          jq --null-input --indent 4 \
+            --arg package "$(jq --raw-output .name composer.json)" \
+            --arg version "$VERSION" \
+            --arg repository "$REPOSITORY" \
+            '{package: $package, version: $version, repository: $repository}' > .starter-kit.json
+
+          cat .starter-kit.json
+
+      - name: Tag Release Commit
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git add .starter-kit.json
+          git commit --message="chore: release $VERSION"
+          git tag "$VERSION"
+          git push origin "refs/tags/$VERSION"
+
+      - name: Publish Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
+        run: gh release create "$VERSION" --verify-tag --generate-notes --title "$VERSION"
