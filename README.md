@@ -54,10 +54,10 @@ Install it globally with Composer:
 composer global require shire-studio/laravel-starter-kit-cli
 ```
 
-Make sure Composer's global bin directory is on your `PATH` (run `composer global config bin-dir --absolute` to find it). Then create a project:
+This installs the `shire-kit` command. Make sure Composer's global bin directory is on your `PATH` (run `composer global config bin-dir --absolute` to find it). Then create a project:
 
 ```bash
-starter-kit new example-app
+shire-kit new example-app
 cd example-app
 ```
 
@@ -103,7 +103,7 @@ You should see 100% test coverage and all quality checks passing.
 Once you've built on the starter kit, you can't just pull in new releases, because your project has drifted from it. The CLI's `update` command handles this. Run it from the root of your project:
 
 ```bash
-starter-kit update
+shire-kit update
 ```
 
 The project must be in a git repository with no uncommitted changes, so everything the update does can be reviewed with `git diff` and undone with `git restore`. It can live inside a larger repository, such as a monorepo.
