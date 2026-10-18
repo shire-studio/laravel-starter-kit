@@ -13,7 +13,7 @@ export const mainNavItems: NavItem[] = [
 export const extraNavItems: NavItem[] = [
   {
     title: 'Repository',
-    href: 'https://github.com/shire-studio/laravel-starter-kit',
+    href: 'https://github.com/shire-studio/laravel-starter-kit-vue',
     icon: FolderGit2,
   },
   {
