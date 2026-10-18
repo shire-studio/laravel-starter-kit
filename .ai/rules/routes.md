@@ -3,13 +3,16 @@ paths:
   - 'routes/*.php'
   - 'app/Http/Controllers/**/*.php'
   - 'resources/js/**/*.vue'
+  - 'resources/js/**/*.tsx'
+  - 'resources/js/**/*.svelte'
+  - 'resources/views/**/*.blade.php'
   - 'resources/js/**/*.ts'
 ---
 
 # Routes
 
 ## Internal URLs
-Name first party routes that callers need to generate. Prefer `route()` or `to_route()` for backend application destinations, and use generated Wayfinder route or action functions for internal Vue links, forms, and requests.
+Name first party routes that callers need to generate. Prefer `route()` or `to_route()` for backend application destinations, and use generated Wayfinder route or action functions for internal frontend links, forms, and requests. Blade and Livewire views use named routes through `route()`.
 
 Literal paths are acceptable in route declarations, static `Route::redirect()` declarations, package configuration that accepts a path, tests that intentionally verify a conventional path, isolated request fixtures, and explicit defensive fallbacks. Do not add other hardcoded internal application URLs.
 
