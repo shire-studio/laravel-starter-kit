@@ -1,9 +1,0 @@
-[scripts]
-setup_file = ".bloom/setup.sh"
-archive_file = ".bloom/archive.sh"
-
-[scripts.run.vite]
-command = "pnpm run dev"
-
-[scripts.run.queue]
-command = "php artisan queue:work"
