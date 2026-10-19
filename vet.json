@@ -775,7 +775,7 @@
             "hash": "tree-v2:e6eca12685cfabe12b9ec7829568be31ea87b9c77d66dd1a07c18d08b254751c"
         }
     },
-    "minimum-release-age": 3,
+    "minimum-release-age": 2,
     "minimum-release-age-exclude": [
         "roave/security-advisories"
     ]
