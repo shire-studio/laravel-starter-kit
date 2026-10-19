@@ -45,6 +45,7 @@
       ],
       "sort_algorithm": "none"
     },
+    "Pint/laravel_blade": true,
     "Pint/phpdoc_type_annotations_only": true,
     "protected_to_private": true,
     "self_accessor": true,
