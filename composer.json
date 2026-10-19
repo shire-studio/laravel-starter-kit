@@ -16,7 +16,7 @@
     "laravel/fortify": "^1.41.0",
     "laravel/framework": "~13.34.0",
     "laravel/tinker": "^3.0.2",
-    "laravel/wayfinder": "^0.1.21",
+    "laravel/wayfinder": "^0.1.23",
     "nesbot/carbon": "3.14.0",
     "nunomaduro/essentials": "^1.2.0",
     "phpstan/phpdoc-parser": "2.3.5",

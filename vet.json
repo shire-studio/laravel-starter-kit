@@ -97,8 +97,8 @@
             "hash": "tree-v2:07c01215fec4bef8c1a223bba86119b769ab70dd45d7013834d3dfcdf8046fea"
         },
         "laravel/wayfinder": {
-            "version": "v0.1.21",
-            "hash": "tree-v2:877998abf30229595b0e26fa90a4b70fcb1e6682b08f7d74df8da1c550952ebb"
+            "version": "v0.1.23",
+            "hash": "tree-v2:38d1cfa0cd5f8a20883165e1eda91f8b93c2ccccc33bc8f09a60384710d647de"
         },
         "league/commonmark": {
             "version": "2.10.3",
@@ -121,12 +121,12 @@
             "hash": "tree-v2:1726a64b700472e12c6e5917132914a632350a91b90816cc3c5940ddea1f92d7"
         },
         "league/uri": {
-            "version": "7.8.1",
-            "hash": "tree-v2:4397d51a8c4e6080a42f161000bf9db6e73840654aff3cc445f27b405c36ab5c"
+            "version": "7.9.0",
+            "hash": "tree-v2:4cdc2d22dffc1be5c928e1c01bdcb12c8a354f6a4f58499288e25a74d645b86f"
         },
         "league/uri-interfaces": {
-            "version": "7.8.1",
-            "hash": "tree-v2:227c217ed67b9cd48cc589867bf18379e95858e068724b8fbef94713311b024e"
+            "version": "7.9.0",
+            "hash": "tree-v2:f176832fd32f00d4ca1915979a6c96ab8e752e6653df950a87d77b790f2d7ed6"
         },
         "monolog/monolog": {
             "version": "3.12.1",
@@ -229,8 +229,8 @@
             "hash": "tree-v2:68d8f0c8847e8275812a7af6335ada47d71f8534bb96c5b54ea18141e4739d77"
         },
         "roave/better-reflection": {
-            "version": "6.73.0",
-            "hash": "tree-v2:0bfabaa6045e38f1cd8a82d4a608264a5ca47a19080334f740477f0cd713feaf"
+            "version": "6.74.0",
+            "hash": "tree-v2:aaef1200d8bb481d662d1b9453dd0b72d6c64bc5ea9c4a541481dd2f8798717d"
         },
         "spatie/file-system-watcher": {
             "version": "1.2.1",
@@ -583,8 +583,8 @@
             "hash": "tree-v2:7c555b9f7eb265649d89769aa9b07bafc809d9e52d15ecdc3a84ee1c59fa767e"
         },
         "league/uri-components": {
-            "version": "7.8.1",
-            "hash": "tree-v2:a2b928f6fae0e15c66f08ae84e98f7dd8547749390ca842c83014bf1f2d68777"
+            "version": "7.9.0",
+            "hash": "tree-v2:1f352e6a370c5eedb3cea4995ebf7f3a8e5e23b4bb4670ca9f9bbe9b41e09864"
         },
         "mockery/mockery": {
             "version": "1.6.15",
