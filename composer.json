@@ -26,10 +26,10 @@
     "spatie/typescript-transformer": "^3.3.1"
   },
   "require-dev": {
-    "driftingly/rector-laravel": "^2.6.2",
+    "driftingly/rector-laravel": "^2.7.0",
     "fakerphp/faker": "^v1.24.1",
     "fidry/cpu-core-counter": "1.3.0",
-    "larastan/larastan": "^3.13.0",
+    "larastan/larastan": "^3.13.1",
     "laravel/boost": "^2.10.3",
     "laravel/pail": "^1.2.7",
     "laravel/pao": "^1.1.5",
