@@ -112,6 +112,8 @@ export default defineConfig({
     Components({
       dts: true,
       dirs: ['resources/js/components', 'resources/js/layouts'],
+      // Sonner is resolved as UiToaster below, matching the React and Svelte kits.
+      globsExclude: ['resources/js/components/ui/sonner/Sonner.vue'],
       directoryAsNamespace: true,
       collapseSamePrefixes: true,
       types: [
@@ -129,6 +131,13 @@ export default defineConfig({
             return {
               name: component,
               from: '@inertiajs/vue3',
+            }
+          }
+
+          if (component === 'UiToaster') {
+            return {
+              name: 'Toaster',
+              from: '@/components/ui/sonner',
             }
           }
 

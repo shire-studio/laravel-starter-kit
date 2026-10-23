@@ -24,7 +24,7 @@ Keep type-only imports explicit. Explicitly import Wayfinder routes and actions,
 Template auto-importing is disabled. Bind an auto-imported function in `<script setup>` before using it only in a template. Explicitly import functions that are not in the auto-import registry.
 
 ## Components
-Vue components under `resources/js/components` and `resources/js/layouts` are auto-imported recursively for template use. Names include their directory namespace and collapse repeated prefixes, such as `UiButton`, `AuthCardLayout`, and `SettingsLayout`.
+Vue components under `resources/js/components` and `resources/js/layouts` are auto-imported recursively for template use. Names include their directory namespace and collapse repeated prefixes, such as `UiButton`, `AuthCardLayout`, and `SettingsLayout`. The Sonner wrapper is the one exception and resolves as `UiToaster`, matching the React and Svelte kits.
 
 Use Inertia `Link`, `Form`, `Head`, `Page`, and `Deferred` directly in templates. Reka components use the `Reka` prefix. Explicitly import component types and components needed as JavaScript values.
 

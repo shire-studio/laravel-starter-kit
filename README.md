@@ -31,7 +31,7 @@ The Vue, React and Svelte kits share the same PHP application line for line. Onl
 ## Features
 
 - **Fully type safe end to end:** TypeScript types for routes, actions and Data classes are generated for you
-- **Zero config auto imports:** framework APIs, Inertia helpers and composables are auto imported, just like Nuxt
+- **Zero config auto imports:** framework APIs, Inertia helpers, composables and components are auto imported, just like Nuxt
 - **Auto regenerating types:** editing `app/Data` or `app/Enums` regenerates the TypeScript types while `composer dev` runs
 - **Dark mode and appearance switching:** built in theme support with cookie based persistence
 - **Persistent sidebar state:** the collapsible sidebar remembers its state across requests

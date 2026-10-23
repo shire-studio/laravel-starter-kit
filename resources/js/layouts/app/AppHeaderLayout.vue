@@ -16,6 +16,6 @@ withDefaults(defineProps<Props>(), {
     <AppContent variant="header">
       <slot />
     </AppContent>
-    <UiSonner />
+    <UiToaster />
   </AppShell>
 </template>
